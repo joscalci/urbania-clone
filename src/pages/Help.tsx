@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search, ChevronDown, ChevronUp, User, Home, ShieldCheck, Zap } from 'lucide-react';
 
 const Help = () => {

@@ -1,10 +1,10 @@
-import React from 'react';
+// import React from 'react';
 
 const LogoOptions = () => {
     return (
         <div className="container mx-auto p-4 min-h-screen">
             <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">Candidatos para Logo VESTA</h1>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 {/* OPCIÓN 1: SERIF - ELEGANTE (WeWork-ish) */}
@@ -27,22 +27,22 @@ const LogoOptions = () => {
                             vesta
                         </h2>
                         <div className="flex gap-1 justify-center mt-2">
-                             <div className="w-8 h-1 bg-[#4a90e2] rounded-full"></div>
-                             <div className="w-2 h-1 bg-orange-500 rounded-full"></div>
+                            <div className="w-8 h-1 bg-[#4a90e2] rounded-full"></div>
+                            <div className="w-2 h-1 bg-orange-500 rounded-full"></div>
                         </div>
                         <p className="text-gray-500 font-sans text-sm mt-4">Opción 2: Sans Geométrico (Estilo Tech / Startup)</p>
                         <p className="text-xs text-gray-400">Tipografía: Montserrat ExtraBold (lowercase)</p>
                     </div>
                 </div>
 
-                 {/* OPCIÓN 3: ROUNDED - AMIGABLE (Airbnb-ish) */}
-                 <div className="bg-white p-12 rounded-lg shadow-lg border border-gray-100 flex flex-col items-center justify-center space-y-4">
+                {/* OPCIÓN 3: ROUNDED - AMIGABLE (Airbnb-ish) */}
+                <div className="bg-white p-12 rounded-lg shadow-lg border border-gray-100 flex flex-col items-center justify-center space-y-4">
                     <div className="text-center">
                         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet" />
                         <h2 className="text-6xl text-[#2d3748] mb-2" style={{ fontFamily: "'Nunito', sans-serif" }}>
                             VESTA
                         </h2>
-                         <p className="text-gray-500 font-sans text-sm mt-4">Opción 3: Rounded Amigable (Estilo Airbnb / App)</p>
+                        <p className="text-gray-500 font-sans text-sm mt-4">Opción 3: Rounded Amigable (Estilo Airbnb / App)</p>
                         <p className="text-xs text-gray-400">Tipografía: Nunito Black</p>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ const LogoOptions = () => {
                 </div>
 
             </div>
-            
+
             <div className="mt-12 text-center text-gray-500 max-w-2xl mx-auto">
                 <p>Estas opciones están implementadas con código real (CSS y Google Fonts). La opción que elijas será muy fácil de implementar en toda la aplicación porque es texto, no una imagen plana, lo que garantiza nitidez perfecta en cualquier pantalla.</p>
             </div>

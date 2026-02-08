@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Target, Users, Shield, Award, Sparkles } from 'lucide-react';
 
 const About = () => {

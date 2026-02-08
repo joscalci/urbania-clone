@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Shield, Lock, FileText, Scale } from 'lucide-react';
 
 const Legal = () => {
