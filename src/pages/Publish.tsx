@@ -19,7 +19,7 @@ const Publish = () => {
                 <h2 className="text-2xl font-bold mb-4">Inicia sesión para publicar</h2>
                 <button
                     onClick={() => navigate('/login')}
-                    className="bg-urbania-primary text-white px-6 py-2 rounded-md hover:bg-urbania-secondary"
+                    className="bg-vesta-accent text-white px-6 py-2 rounded-md hover:bg-vesta-secondary"
                 >
                     Ir al Login
                 </button>
@@ -61,11 +61,14 @@ const Publish = () => {
                 parking: Number(data.features.parking),
             },
             images: [
-                'https://images.unsplash.com/photo-1600596542815-27b88e54e627?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80', // Default mock image
+                'https://images.unsplash.com/photo-1600596542815-27b88e54e627?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
                 ...data.imageUrls ? [data.imageUrls] : [],
             ],
             publisherId: user.id,
             createdAt: new Date().toISOString(),
+            status: 'pending',
+            plan: localStorage.getItem('selectedPlan') as any || 'free',
+            isVerified: false
         };
 
         addProperty(newProperty);
@@ -81,7 +84,7 @@ const Publish = () => {
                 {/* Basic Info */}
                 <div className="space-y-4">
                     <h2 className="text-xl font-semibold flex items-center gap-2 border-b pb-2">
-                        <Home className="h-5 w-5 text-urbania-primary" /> Información Básica
+                        <Home className="h-5 w-5 text-vesta-accent" /> Información Básica
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -89,7 +92,7 @@ const Publish = () => {
                             <label className="block text-sm font-medium text-gray-700">Título del Anuncio</label>
                             <input
                                 {...register('title', { required: true })}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                                 placeholder="Ej: Lindo departamento en Miraflores"
                             />
                             {errors.title && <span className="text-red-500 text-xs">Requerido</span>}
@@ -97,7 +100,7 @@ const Publish = () => {
 
                         <div>
                             <label className="block text-sm font-medium text-gray-700">Tipo de Operación</label>
-                            <select {...register('type')} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border">
+                            <select {...register('type')} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border">
                                 <option value="sale">Venta</option>
                                 <option value="rent">Alquiler</option>
                             </select>
@@ -105,7 +108,7 @@ const Publish = () => {
 
                         <div>
                             <label className="block text-sm font-medium text-gray-700">Tipo de Inmueble</label>
-                            <select {...register('category')} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border">
+                            <select {...register('category')} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border">
                                 <option value="apartment">Departamento</option>
                                 <option value="house">Casa</option>
                                 <option value="office">Oficina</option>
@@ -118,7 +121,7 @@ const Publish = () => {
                             <textarea
                                 {...register('description', { required: true })}
                                 rows={4}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                             />
                         </div>
                     </div>
@@ -127,13 +130,13 @@ const Publish = () => {
                 {/* Price & Location */}
                 <div className="space-y-4">
                     <h2 className="text-xl font-semibold flex items-center gap-2 border-b pb-2">
-                        <DollarSign className="h-5 w-5 text-urbania-primary" /> Precio y Ubicación
+                        <DollarSign className="h-5 w-5 text-vesta-accent" /> Precio y Ubicación
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div>
                             <label className="block text-sm font-medium text-gray-700">Moneda</label>
-                            <select {...register('currency')} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border">
+                            <select {...register('currency')} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border">
                                 <option value="USD">Dólares (USD)</option>
                                 <option value="PEN">Soles (PEN)</option>
                             </select>
@@ -144,7 +147,7 @@ const Publish = () => {
                             <input
                                 type="number"
                                 {...register('price', { required: true })}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                             />
                         </div>
 
@@ -152,7 +155,7 @@ const Publish = () => {
                             <label className="block text-sm font-medium text-gray-700">Dirección</label>
                             <input
                                 {...register('location.address', { required: true })}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                             />
                         </div>
 
@@ -160,7 +163,7 @@ const Publish = () => {
                             <label className="block text-sm font-medium text-gray-700">Distrito</label>
                             <input
                                 {...register('location.district', { required: true })}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                             />
                         </div>
 
@@ -168,7 +171,7 @@ const Publish = () => {
                             <label className="block text-sm font-medium text-gray-700">Ciudad</label>
                             <input
                                 {...register('location.city', { required: true })}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                                 defaultValue="Lima"
                             />
                         </div>
@@ -178,7 +181,7 @@ const Publish = () => {
                 {/* Features */}
                 <div className="space-y-4">
                     <h2 className="text-xl font-semibold flex items-center gap-2 border-b pb-2">
-                        <Layout className="h-5 w-5 text-urbania-primary" /> Características
+                        <Layout className="h-5 w-5 text-vesta-accent" /> Características
                     </h2>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -187,7 +190,7 @@ const Publish = () => {
                             <input
                                 type="number"
                                 {...register('features.bedrooms', { required: true })}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                             />
                         </div>
                         <div>
@@ -195,7 +198,7 @@ const Publish = () => {
                             <input
                                 type="number"
                                 {...register('features.bathrooms', { required: true })}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                             />
                         </div>
                         <div>
@@ -203,7 +206,7 @@ const Publish = () => {
                             <input
                                 type="number"
                                 {...register('features.area', { required: true })}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                             />
                         </div>
                         <div>
@@ -211,7 +214,7 @@ const Publish = () => {
                             <input
                                 type="number"
                                 {...register('features.parking')}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-urbania-primary focus:ring-urbania-primary p-2 border"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-vesta-accent focus:ring-vesta-accent p-2 border"
                             />
                         </div>
                     </div>
@@ -220,9 +223,9 @@ const Publish = () => {
                 {/* Images (Simulated) */}
                 <div className="space-y-4">
                     <h2 className="text-xl font-semibold flex items-center gap-2 border-b pb-2">
-                        <Upload className="h-5 w-5 text-urbania-primary" /> Imágenes
+                        <Upload className="h-5 w-5 text-vesta-accent" /> Imágenes
                     </h2>
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center hover:border-urbania-primary transition-colors cursor-pointer">
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center hover:border-vesta-accent transition-colors cursor-pointer">
                         <Upload className="mx-auto h-12 w-12 text-gray-400" />
                         <p className="mt-2 text-sm text-gray-600">
                             Arrastra tus fotos aquí o haz clic para seleccionar (Simulado)
@@ -233,7 +236,7 @@ const Publish = () => {
                 <div className="pt-4">
                     <button
                         type="submit"
-                        className="w-full bg-urbania-primary text-white font-bold py-4 rounded-lg hover:bg-urbania-secondary transition-colors shadow-lg"
+                        className="w-full bg-vesta-accent text-white font-bold py-4 rounded-lg hover:bg-vesta-secondary transition-colors shadow-lg"
                     >
                         Publicar Aviso
                     </button>

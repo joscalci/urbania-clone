@@ -1,16 +1,10 @@
 import { create } from 'zustand';
-
-interface User {
-    id: string;
-    name: string;
-    email: string;
-    role: 'user' | 'agent';
-}
+import { User } from '../types';
 
 interface AuthState {
     user: User | null;
     isAuthenticated: boolean;
-    login: (email: string, role?: 'user' | 'agent') => void;
+    login: (email: string, role?: User['role']) => void;
     logout: () => void;
 }
 
@@ -18,12 +12,19 @@ export const useAuthStore = create<AuthState>((set) => ({
     user: null,
     isAuthenticated: false,
     login: (email, role = 'user') => {
-        // Mock login
+        // Mock login logic
+        let assignedRole = role;
+
+        // Special logic for admin email or explicit role
+        if (email.toLowerCase().includes('admin')) {
+            assignedRole = 'admin';
+        }
+
         const mockUser: User = {
             id: '1',
             name: email.split('@')[0],
             email,
-            role,
+            role: assignedRole as User['role'],
         };
         set({ user: mockUser, isAuthenticated: true });
     },

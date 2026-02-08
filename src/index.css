@@ -3,7 +3,45 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-vesta-surface text-vesta-primary font-sans antialiased;
+  }
+
+  ::selection {
+    background-color: theme('colors.vesta.trust');
+    color: white;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    @apply outline-none ring-2 ring-offset-2 transition-all;
+    --tw-ring-color: theme('colors.vesta.warm');
+  }
+}
+
+@layer components {
+  .premium-card {
+    @apply bg-white rounded-3xl shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-500 overflow-hidden;
+  }
+
+  .premium-card:hover {
+    border-color: theme('colors.vesta.trust');
+  }
+
+  .vesta-btn {
+    @apply px-8 py-3 rounded-full font-bold text-sm text-white transition-all active:scale-[0.98] shadow-md flex items-center justify-center gap-2 hover:shadow-lg hover:brightness-110;
+    background-image: linear-gradient(135deg, theme('colors.vesta.trust'), theme('colors.vesta.warm'));
+  }
+  
+  .vesta-text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(135deg, theme('colors.vesta.trust'), theme('colors.vesta.warm'));
   }
 }

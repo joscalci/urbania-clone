@@ -49,7 +49,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) =
                             placeholder="0000 0000 0000 0000"
                             value={cardNumber}
                             onChange={(e) => setCardNumber(e.target.value)}
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-urbania-primary outline-none"
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-vesta-accent outline-none"
                             required
                         />
                     </div>
@@ -61,7 +61,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) =
                                 placeholder="MM/YY"
                                 value={expiry}
                                 onChange={(e) => setExpiry(e.target.value)}
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-urbania-primary outline-none"
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-vesta-accent outline-none"
                                 required
                             />
                         </div>
@@ -72,14 +72,14 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose }) =
                                 placeholder="123"
                                 value={cvc}
                                 onChange={(e) => setCvc(e.target.value)}
-                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-urbania-primary outline-none"
+                                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-vesta-accent outline-none"
                                 required
                             />
                         </div>
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-urbania-primary text-white py-3 rounded-xl font-bold hover:bg-urbania-secondary transition-colors"
+                        className="w-full bg-vesta-accent text-white py-3 rounded-xl font-bold hover:bg-vesta-secondary transition-colors"
                     >
                         Pagar
                     </button>

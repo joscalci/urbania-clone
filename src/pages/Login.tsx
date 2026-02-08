@@ -26,7 +26,7 @@ const Login = () => {
                         Iniciar Sesión
                     </h2>
                     <p className="mt-2 text-center text-sm text-gray-600">
-                        O <Link to="/register" className="font-medium text-urbania-primary hover:text-urbania-secondary">regístrate gratis</Link>
+                        O <Link to="/register" className="font-medium text-vesta-accent hover:text-vesta-secondary">regístrate gratis</Link>
                     </p>
                 </div>
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -36,7 +36,7 @@ const Login = () => {
                             <input
                                 type="email"
                                 required
-                                className="appearance-none rounded-none rounded-t-md relative block w-full px-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-urbania-primary focus:border-urbania-primary focus:z-10 sm:text-sm"
+                                className="appearance-none rounded-none rounded-t-md relative block w-full px-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-vesta-accent focus:border-vesta-accent focus:z-10 sm:text-sm"
                                 placeholder="Correo electrónico"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -47,7 +47,7 @@ const Login = () => {
                             <input
                                 type="password"
                                 required
-                                className="appearance-none rounded-none rounded-b-md relative block w-full px-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-urbania-primary focus:border-urbania-primary focus:z-10 sm:text-sm"
+                                className="appearance-none rounded-none rounded-b-md relative block w-full px-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-vesta-accent focus:border-vesta-accent focus:z-10 sm:text-sm"
                                 placeholder="Contraseña"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -58,7 +58,7 @@ const Login = () => {
                     <div>
                         <button
                             type="submit"
-                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-urbania-primary hover:bg-urbania-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-urbania-primary"
+                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-vesta-accent hover:bg-vesta-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-vesta-accent"
                         >
                             Ingresar
                         </button>

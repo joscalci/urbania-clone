@@ -108,7 +108,7 @@ const Chatbot = () => {
             {/* Floating Button */}
             <button
                 onClick={() => setIsOpen(true)}
-                className={`fixed bottom-6 right-6 bg-urbania-primary text-white p-4 rounded-full shadow-lg hover:bg-urbania-secondary transition-all duration-300 z-50 ${isOpen ? 'hidden' : 'flex'}`}
+                className={`fixed bottom-6 right-6 bg-vesta-accent text-white p-4 rounded-full shadow-lg hover:bg-vesta-secondary transition-all duration-300 z-50 ${isOpen ? 'hidden' : 'flex'}`}
             >
                 <MessageSquare className="h-6 w-6" />
             </button>
@@ -117,7 +117,7 @@ const Chatbot = () => {
             <div className={`fixed bottom-6 right-6 w-80 md:w-96 bg-white rounded-2xl shadow-2xl z-50 transition-all duration-300 transform ${isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'}`}>
 
                 {/* Header */}
-                <div className="bg-urbania-primary text-white p-4 rounded-t-2xl flex justify-between items-center">
+                <div className="bg-vesta-accent text-white p-4 rounded-t-2xl flex justify-between items-center">
                     <div className="flex items-center gap-2">
                         <div className="bg-white/20 p-1.5 rounded-full">
                             <Bot className="h-5 w-5" />
@@ -125,7 +125,7 @@ const Chatbot = () => {
                         <div>
                             <div>
                                 <h3 className="font-bold text-sm">Vesta AI</h3>
-                                <span className="text-xs text-urbania-accent flex items-center gap-1">
+                                <span className="text-xs text-vestate-highlight flex items-center gap-1">
                                     <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> En línea
                                 </span>
                             </div>
@@ -140,7 +140,7 @@ const Chatbot = () => {
                 <div className="h-96 overflow-y-auto p-4 bg-gray-50 space-y-4">
                     {messages.map((msg) => (
                         <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                            <div className={`max-w-[85%] rounded-2xl p-3 ${msg.sender === 'user' ? 'bg-urbania-primary text-white rounded-br-none' : 'bg-white text-gray-800 shadow-sm rounded-bl-none border border-gray-100'}`}>
+                            <div className={`max-w-[85%] rounded-2xl p-3 ${msg.sender === 'user' ? 'bg-vesta-accent text-white rounded-br-none' : 'bg-white text-gray-800 shadow-sm rounded-bl-none border border-gray-100'}`}>
                                 <p className="text-sm">{msg.text}</p>
 
                                 {/* Property Listings in Chat */}
@@ -152,7 +152,7 @@ const Chatbot = () => {
                                                     <img src={item.images[0]} alt="" className="w-12 h-12 object-cover rounded" />
                                                     <div className="overflow-hidden">
                                                         <p className="text-xs font-bold truncate text-gray-900">{item.title}</p>
-                                                        <p className="text-xs text-urbania-primary font-bold">
+                                                        <p className="text-xs text-vesta-accent font-bold">
                                                             {item.currency === 'USD' ? '$' : 'S/'} {item.price.toLocaleString()}
                                                         </p>
                                                     </div>
@@ -160,7 +160,7 @@ const Chatbot = () => {
                                             </Link>
                                         ))}
                                         {msg.data.length > 0 && (
-                                            <Link to="/search" className="block text-center text-xs text-urbania-primary font-bold mt-2 hover:underline">
+                                            <Link to="/search" className="block text-center text-xs text-vesta-accent font-bold mt-2 hover:underline">
                                                 Ver todos los resultados
                                             </Link>
                                         )}
@@ -195,12 +195,12 @@ const Chatbot = () => {
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             placeholder="Escribe un mensaje..."
-                            className="flex-1 bg-gray-100 border-0 rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-urbania-primary focus:bg-white transition-all"
+                            className="flex-1 bg-gray-100 border-0 rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-vesta-accent focus:bg-white transition-all"
                         />
                         <button
                             type="submit"
                             disabled={!input.trim()}
-                            className="bg-urbania-primary text-white p-2 rounded-full hover:bg-urbania-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                            className="bg-vesta-accent text-white p-2 rounded-full hover:bg-vesta-secondary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                         >
                             <Send className="h-4 w-4" />
                         </button>

@@ -1,5 +1,3 @@
-// Types definitions for VESTA application
-
 export interface Location {
     address: string;
     city: string;
@@ -20,12 +18,23 @@ export interface Property {
     title: string;
     description: string;
     price: number;
-    currency: string;
-    type: string; // 'sale' | 'rent'
-    category: string; // e.g., 'apartment', 'house'
+    currency: 'USD' | 'PEN';
+    type: 'sale' | 'rent';
+    category: 'apartment' | 'house' | 'office' | 'land';
     location: Location;
     features: Features;
     images: string[];
     publisherId: string;
     createdAt: string;
+    status: 'pending' | 'verified' | 'rejected' | 'reported';
+    plan: 'free' | 'featured' | 'premium';
+    isVerified: boolean;
+}
+
+export interface User {
+    id: string;
+    name: string;
+    email: string;
+    role: 'user' | 'agent' | 'admin';
+    avatar?: string;
 }

@@ -36,7 +36,7 @@ const Plans = () => {
             name: 'Premium',
             price: 'S/ 99',
             period: '/mes',
-            icon: <Zap className="h-8 w-8 text-urbania-primary" />,
+            icon: <Zap className="h-8 w-8 text-vesta-accent" />,
             features: ['Ilimitadas Publicaciones', 'Fotos 360° y Video', 'Asesor personal', 'Etiqueta "Premium"', 'Top de búsquedas', 'Estadísticas avanzadas'],
             buttonText: 'Ser Premium',
             recommended: false
@@ -65,10 +65,10 @@ const Plans = () => {
                 {plans.map((plan) => (
                     <div
                         key={plan.id}
-                        className={`relative bg-white rounded-2xl shadow-xl overflow-hidden border-2 transition-transform hover:scale-105 ${plan.recommended ? 'border-urbania-primary' : 'border-transparent'}`}
+                        className={`relative bg-white rounded-2xl shadow-xl overflow-hidden border-2 transition-transform hover:scale-105 ${plan.recommended ? 'border-vesta-accent' : 'border-transparent'}`}
                     >
                         {plan.recommended && (
-                            <div className="absolute top-0 right-0 bg-urbania-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                            <div className="absolute top-0 right-0 bg-vesta-accent text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
                                 MÁS POPULAR
                             </div>
                         )}
@@ -92,7 +92,7 @@ const Plans = () => {
                             <button
                                 onClick={() => handleSelectPlan(plan.id)}
                                 className={`w-full py-3 rounded-xl font-bold transition-colors ${plan.recommended
-                                    ? 'bg-urbania-primary text-white hover:bg-urbania-secondary'
+                                    ? 'bg-vesta-accent text-white hover:bg-vesta-secondary'
                                     : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                                     }`}
                             >
