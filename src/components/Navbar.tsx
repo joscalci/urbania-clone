@@ -14,7 +14,7 @@ const Navbar = () => {
                         {/* Logo */}
                         <Link to="/" className="flex items-center gap-2 group relative">
                             <img
-                                src="/src/assets/vesta-logo-final.png"
+                                src="/logo.png"
                                 alt="Vesta Logo"
                                 className="h-32 md:h-40 w-auto object-contain"
                             />

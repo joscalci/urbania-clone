@@ -28,3 +28,4 @@ dist-ssr
 # Vite artifacts
 stats.json
 *.tsbuildinfo
+.vercel
